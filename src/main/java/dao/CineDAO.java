@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import bean.Cine;
@@ -11,12 +10,12 @@ public class CineDAO {
 	db.Db db = new db.Db("CineStar");
 	
 	public String [][] getVerCines (){
-		db.Sentencia("call sp_getVerCines()");
+		db.Sentencia("call sp_getCines()");
 		return db.getRegistros();
 		
 	}
 	public String [] getCine (Object id){
-		db.Sentencia( String.format("call sp_getVerCines(%s)",id));
+		db.Sentencia( String.format("call sp_getCine(%s)",id));
 		return db.getRegistro();
 		
 	}
@@ -31,7 +30,7 @@ public class CineDAO {
 		
 	}
 	public List<Cine> getVerCinesList(){
-		db.Sentencia("call sp_getVercines");
+		db.Sentencia("call sp_getCines()");
 		return new Cine().getRegistros(db.getRegistros());
 		
 	}

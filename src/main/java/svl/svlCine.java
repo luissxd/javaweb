@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 import bean.Cine;
-import dao.CineDAO;
+
 
 public class svlCine extends HttpServlet {
 	private static final long serialVersionUID = 1L;

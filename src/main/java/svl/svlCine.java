@@ -24,8 +24,8 @@ public class svlCine extends HttpServlet {
 		dao.CineDAO CineDAO=new dao.CineDAO();
 
 		String id = request.getParameter("id");
-		Object data = null;
-		if (id != null) {
+		
+		if (id == null) {
 			// if(id.equals("cines") || id.equals("cine") )
 			// data = new dao.CineDAO().getCines( id.equals("cines") ? 1 : 2, true );
 			// else data = new dao.CineDAO().getCine(id, true);
@@ -33,10 +33,16 @@ public class svlCine extends HttpServlet {
 			session.setAttribute("id", lstCine == null ? null:"3");
 			session.setAttribute("lstCine", lstCine);
 		}else {
-			String [] aCine = CineDAO.getCine(id);
-			session.setAttribute("id", aCine==null ? null:"4");
-			session.setAttribute("aCine", aCine);
-			session.setAttribute("mTarifas", CineDAO.getCineTarifasList(id));
+			//String [] aCine = CineDAO.getCine(id);
+			//session.setAttribute("id", aCine==null ? null:"4");
+			//session.setAttribute("aCine", aCine);
+			//session.setAttribute("mTarifas", CineDAO.getCineTarifasList(id));
+			//session.setAttribute("lstCinePelicula", CineDAO.getCinePeliculasList(id));
+			
+			Cine Cine = CineDAO.getCineList(id);
+			session.setAttribute("id", Cine==null ? null:"4");
+			session.setAttribute("Cine", Cine);
+			session.setAttribute("lstCineTarifa", CineDAO.getCineTarifasList(id));
 			session.setAttribute("lstCinePelicula", CineDAO.getCinePeliculasList(id));
 			
 		}

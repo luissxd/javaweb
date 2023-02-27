@@ -28,8 +28,7 @@
 				<% } else if ( id.equals("cine") ) { %> <%@include file="WEB-INF/cine.jsp" %>
 				<% } else if ( id.equals("cines") ) { %> <%@include file="WEB-INF/cines.jsp" %>
 				<% } %>
-					
-				
+
 			</div>
 		</div>
 		<div class="clearbox"><br/></div>
